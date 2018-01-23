@@ -236,6 +236,7 @@ def get_common_options(args):
         server_replay_ignore_params=args.server_replay_ignore_params,
         server_replay_ignore_payload_params=args.server_replay_ignore_payload_params,
         server_replay_ignore_host=args.server_replay_ignore_host,
+        server_replay_ignore_port=args.server_replay_ignore_port,
 
         auth_nonanonymous = args.auth_nonanonymous,
         auth_singleuser = args.auth_singleuser,
@@ -662,6 +663,12 @@ def server_replay(parser):
         dest="server_replay_ignore_host",
         default=False,
         help="Ignore request's destination host while searching for a saved flow to replay")
+    group.add_argument(
+        "--replay-ignore-port",
+        action="store_true",
+        dest="server_replay_ignore_port",
+        default=False,
+        help="Ignore request's destination port while searching for a saved flow to replay")
 
 
 def replacements(parser):

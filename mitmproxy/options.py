@@ -51,6 +51,7 @@ class Options(optmanager.OptManager):
             server_replay_ignore_params=(),  # type: Sequence[str]
             server_replay_ignore_payload_params=(),  # type: Sequence[str]
             server_replay_ignore_host=False,  # type: bool
+            server_replay_ignore_port=False,  # type: bool
 
             # Proxy options
             auth_nonanonymous=False,  # type: bool
@@ -111,6 +112,7 @@ class Options(optmanager.OptManager):
         self.server_replay_ignore_params = server_replay_ignore_params
         self.server_replay_ignore_payload_params = server_replay_ignore_payload_params
         self.server_replay_ignore_host = server_replay_ignore_host
+        self.server_replay_ignore_port = server_replay_ignore_port
 
         # Proxy options
         self.auth_nonanonymous = auth_nonanonymous

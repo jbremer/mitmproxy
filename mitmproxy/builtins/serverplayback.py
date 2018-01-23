@@ -35,7 +35,7 @@ class ServerPlayback(object):
         _, _, path, _, query, _ = urllib.parse.urlparse(r.url)
         queriesArray = urllib.parse.parse_qsl(query, keep_blank_values=True)
 
-        key = [str(r.port), str(r.scheme), str(r.method), str(path)]
+        key = [str(r.scheme), str(r.method), str(path)]
         if not self.options.server_replay_ignore_content:
             form_contents = r.urlencoded_form or r.multipart_form
             if self.options.server_replay_ignore_payload_params and form_contents:
@@ -51,6 +51,8 @@ class ServerPlayback(object):
 
         if not self.options.server_replay_ignore_host:
             key.append(r.host)
+        if not self.options.server_replay_ignore_port:
+            key.append(str(r.port))
 
         filtered = []
         ignore_params = self.options.server_replay_ignore_params or []
